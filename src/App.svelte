@@ -13,20 +13,20 @@ const toBase64 = file => new Promise((resolve, reject) => {
     selectedFile = event.target.files[0];
     if (selectedFile.name.endsWith('.naitheme')) {
     theme = await selectedFile.text();
-    console.log(theme)
      themename = selectedFile.name;
 
       return;
-    } 
+    }
     let json = JSON.parse(theme)
     let base64 = await toBase64(selectedFile);
-    json['global'] += `@font-face {font-family: 'MyFontFamily';src: url(${base64});}`
-      json['fonts']['default'] = 'MyFontFamily'
-      json['fonts']['code'] = 'MyFontFamily'
-      json['fonts']['field'] = 'MyFontFamily'
-      json['fonts']['headings'] = 'MyFontFamily'
-      json['fonts']['selectedHeadings'] = 'MyFontFamily'
-      json['fonts']['selectedDefault'] = 'MyFontFamily'
+    const fontname = selectedFile.name.split('.')[0]
+    json['global'] += `@font-face {font-family: '${fontname}';src: url(${base64});}`
+      json['fonts']['default'] = fontname
+      json['fonts']['code'] = fontname
+      json['fonts']['field'] = fontname
+      json['fonts']['headings'] = fontname
+      json['fonts']['selectedHeadings'] = fontname
+      json['fonts']['selectedDefault'] = fontname
 
 
     
@@ -36,13 +36,56 @@ const toBase64 = file => new Promise((resolve, reject) => {
     saveAs(blob,themename)
 
   }
-  let theme = '';
+  let theme = `{
+  \"name\": \"NovelAI Dark\",
+  \"fonts\": {
+    \"default\": \"\\"Source Sans Pro\\", -apple-system, BlinkMacSystemFont, \\"Segoe UI\\",             \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif\",
+    \"code\": \"\\"Source Code Pro\\", Menlo, Monaco, Consolas, \\"Courier New\\", monospace\",
+    \"field\": \"\\"Source Sans Pro\\", -apple-system, BlinkMacSystemFont, \\"Segoe UI\\",             \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif\",
+    \"headings\": \"\\"Eczar\\"\",
+    \"selectedHeadings\": \"Eczar\",
+    \"selectedDefault\": \"Source Sans Pro\"
+  },
+  \"colors\": {
+    \"bg0\": \"#0E0F21\",
+    \"bg1\": \"#13152C\",
+    \"bg2\": \"#191B31\",
+    \"bg3\": \"#22253F\",
+    \"textHeadings\": \"#F5F3C2\",
+    \"textMain\": \"#FFFFFF\",
+    \"textHeadingsOptions\": [
+      \"#F5F3C2\",
+      \"#EC56A7\",
+      \"#75CF67\",
+      \"#9773FF\"
+    ],
+    \"textMainOptions\": [
+      \"#FFFFFF\",
+      \"#E7FFE9\",
+      \"#FFF9C8\",
+      \"#A5C9FF\"
+    ],
+    \"textDisabled\": \"#FFFFFFA0\",
+    \"textPlaceholder\": \"#FFFFFF77\",
+    \"warning\": \"#FF7878\",
+    \"textHighlight\": \"rgba(255, 120, 120, 0.4)\",
+    \"textPrompt\": \"#F5F3C2\",
+    \"textUser\": \"#9CDCFF\",
+    \"textEdit\": \"#F4C7FF\",
+    \"textAI\": \"#FFFFFF\"
+  },
+  \"breakpoints\": {
+    \"mobile\": \"1200px\",
+    \"desktop\": \"1600px\"
+  },
+  \"transitions\": {
+    \"interactive\": \"0.08s ease-in-out\"
+  },
+  \"global\": \"\"
+}`;
   let themename = 'NovelAI Dark.naitheme';
 
-  onMount(async () => {
-    const response = await fetch("/NovelAI Dark.naitheme");
-    theme = await response.text();
-  });
+
 </script>
 
 <main>
