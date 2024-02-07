@@ -9,14 +9,19 @@ const toBase64 = file => new Promise((resolve, reject) => {
     reader.onerror = reject;
 });
 
+let font
+
   async function handleFileChange(event) {
     selectedFile = event.target.files[0];
     if (selectedFile.name.endsWith('.naitheme')) {
     theme = await selectedFile.text();
      themename = selectedFile.name;
 
-      return;
+    } else {
+      font = selectedFile
     }
+    if (!font) 
+      return;
     let json = JSON.parse(theme)
     let base64 = await toBase64(selectedFile);
     const fontname = selectedFile.name.split('.')[0]
@@ -90,6 +95,8 @@ const toBase64 = file => new Promise((resolve, reject) => {
 
 <main>
   <h1>NovelAI font uploader for anon.</h1>
-  <p>Upload a .theme file if your want to add font to an existing theme, or add font right away for default theme.</p>
+    <p>Simply upload your theme, and your font.</p>
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
+  <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
+
 </main>
