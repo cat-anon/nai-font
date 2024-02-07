@@ -1,0 +1,47 @@
+var G=Object.defineProperty;var J=(e,t,o)=>t in e?G(e,t,{enumerable:!0,configurable:!0,writable:!0,value:o}):e[t]=o;var C=(e,t,o)=>(J(e,typeof t!="symbol"?t+"":t,o),o);(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))i(a);new MutationObserver(a=>{for(const l of a)if(l.type==="childList")for(const c of l.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&i(c)}).observe(document,{childList:!0,subtree:!0});function o(a){const l={};return a.integrity&&(l.integrity=a.integrity),a.referrerPolicy&&(l.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?l.credentials="include":a.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function i(a){if(a.ep)return;a.ep=!0;const l=o(a);fetch(a.href,l)}})();function w(){}function H(e){return e()}function U(){return Object.create(null)}function $(e){e.forEach(H)}function T(e){return typeof e=="function"}function K(e,t){return e!=e?t==t:e!==t||e&&typeof e=="object"||typeof e=="function"}function W(e){return Object.keys(e).length===0}function h(e,t){e.appendChild(t)}function X(e,t,o){e.insertBefore(t,o||null)}function I(e){e.parentNode&&e.parentNode.removeChild(e)}function g(e){return document.createElement(e)}function V(e){return document.createTextNode(e)}function E(){return V(" ")}function B(e,t,o,i){return e.addEventListener(t,o,i),()=>e.removeEventListener(t,o,i)}function S(e,t,o){o==null?e.removeAttribute(t):e.getAttribute(t)!==o&&e.setAttribute(t,o)}function Q(e){return Array.from(e.childNodes)}let R;function x(e){R=e}const F=[],P=[];let b=[];const D=[],Y=Promise.resolve();let L=!1;function Z(){L||(L=!0,Y.then(q))}function j(e){b.push(e)}const k=new Set;let y=0;function q(){if(y!==0)return;const e=R;do{try{for(;y<F.length;){const t=F[y];y++,x(t),ee(t.$$)}}catch(t){throw F.length=0,y=0,t}for(x(null),F.length=0,y=0;P.length;)P.pop()();for(let t=0;t<b.length;t+=1){const o=b[t];k.has(o)||(k.add(o),o())}b.length=0}while(F.length);for(;D.length;)D.pop()();L=!1,k.clear(),x(e)}function ee(e){if(e.fragment!==null){e.update(),$(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(j)}}function te(e){const t=[],o=[];b.forEach(i=>e.indexOf(i)===-1?t.push(i):o.push(i)),o.forEach(i=>i()),b=t}const ne=new Set;function oe(e,t){e&&e.i&&(ne.delete(e),e.i(t))}function re(e,t,o){const{fragment:i,after_update:a}=e.$$;i&&i.m(t,o),j(()=>{const l=e.$$.on_mount.map(H).filter(T);e.$$.on_destroy?e.$$.on_destroy.push(...l):$(l),e.$$.on_mount=[]}),a.forEach(j)}function ie(e,t){const o=e.$$;o.fragment!==null&&(te(o.after_update),$(o.on_destroy),o.fragment&&o.fragment.d(t),o.on_destroy=o.fragment=null,o.ctx=[])}function ae(e,t){e.$$.dirty[0]===-1&&(F.push(e),Z(),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}function se(e,t,o,i,a,l,c=null,p=[-1]){const f=R;x(e);const n=e.$$={fragment:null,ctx:[],props:l,update:w,not_equal:a,bound:U(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(t.context||(f?f.$$.context:[])),callbacks:U(),dirty:p,skip_bound:!1,root:t.target||f.$$.root};c&&c(n.root);let r=!1;if(n.ctx=o?o(e,t.props||{},(u,s,...d)=>{const m=d.length?d[0]:s;return n.ctx&&a(n.ctx[u],n.ctx[u]=m)&&(!n.skip_bound&&n.bound[u]&&n.bound[u](m),r&&ae(e,u)),s}):[],n.update(),r=!0,$(n.before_update),n.fragment=i?i(n.ctx):!1,t.target){if(t.hydrate){const u=Q(t.target);n.fragment&&n.fragment.l(u),u.forEach(I)}else n.fragment&&n.fragment.c();t.intro&&oe(e.$$.fragment),re(e,t.target,t.anchor),q()}x(f)}class le{constructor(){C(this,"$$");C(this,"$$set")}$destroy(){ie(this,1),this.$destroy=w}$on(t,o){if(!T(o))return w;const i=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return i.push(o),()=>{const a=i.indexOf(o);a!==-1&&i.splice(a,1)}}$set(t){this.$$set&&!W(t)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}const ce="4";typeof window<"u"&&(window.__svelte||(window.__svelte={v:new Set})).v.add(ce);var _=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{},z={exports:{}};(function(e,t){(function(o,i){i()})(_,function(){function o(n,r){return typeof r>"u"?r={autoBom:!1}:typeof r!="object"&&(console.warn("Deprecated: Expected third argument to be a object"),r={autoBom:!r}),r.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(n.type)?new Blob(["\uFEFF",n],{type:n.type}):n}function i(n,r,u){var s=new XMLHttpRequest;s.open("GET",n),s.responseType="blob",s.onload=function(){f(s.response,r,u)},s.onerror=function(){console.error("could not download file")},s.send()}function a(n){var r=new XMLHttpRequest;r.open("HEAD",n,!1);try{r.send()}catch{}return 200<=r.status&&299>=r.status}function l(n){try{n.dispatchEvent(new MouseEvent("click"))}catch{var r=document.createEvent("MouseEvents");r.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),n.dispatchEvent(r)}}var c=typeof window=="object"&&window.window===window?window:typeof self=="object"&&self.self===self?self:typeof _=="object"&&_.global===_?_:void 0,p=c.navigator&&/Macintosh/.test(navigator.userAgent)&&/AppleWebKit/.test(navigator.userAgent)&&!/Safari/.test(navigator.userAgent),f=c.saveAs||(typeof window!="object"||window!==c?function(){}:"download"in HTMLAnchorElement.prototype&&!p?function(n,r,u){var s=c.URL||c.webkitURL,d=document.createElement("a");r=r||n.name||"download",d.download=r,d.rel="noopener",typeof n=="string"?(d.href=n,d.origin===location.origin?l(d):a(d.href)?i(n,r,u):l(d,d.target="_blank")):(d.href=s.createObjectURL(n),setTimeout(function(){s.revokeObjectURL(d.href)},4e4),setTimeout(function(){l(d)},0))}:"msSaveOrOpenBlob"in navigator?function(n,r,u){if(r=r||n.name||"download",typeof n!="string")navigator.msSaveOrOpenBlob(o(n,u),r);else if(a(n))i(n,r,u);else{var s=document.createElement("a");s.href=n,s.target="_blank",setTimeout(function(){l(s)})}}:function(n,r,u,s){if(s=s||open("","_blank"),s&&(s.document.title=s.document.body.innerText="downloading..."),typeof n=="string")return i(n,r,u);var d=n.type==="application/octet-stream",m=/constructor/i.test(c.HTMLElement)||c.safari,M=/CriOS\/[\d]+/.test(navigator.userAgent);if((M||d&&m||p)&&typeof FileReader<"u"){var A=new FileReader;A.onloadend=function(){var v=A.result;v=M?v:v.replace(/^data:[^;]*;/,"data:attachment/file;"),s?s.location.href=v:location=v,s=null},A.readAsDataURL(n)}else{var N=c.URL||c.webkitURL,O=N.createObjectURL(n);s?s.location=O:location.href=O,s=null,setTimeout(function(){N.revokeObjectURL(O)},4e4)}});c.saveAs=f.saveAs=f,e.exports=f})})(z);var fe=z.exports;function ue(e){let t,o,i,a,l,c,p,f,n,r,u,s;return{c(){t=g("main"),o=g("h1"),o.textContent="NovelAI font uploader for anon.",i=E(),a=g("p"),a.textContent="Simply upload your theme, and your font.",l=E(),c=g("input"),p=E(),f=g("input"),n=E(),r=g("p"),r.textContent="If you still don't have your download, click here.",S(c,"type","file"),S(c,"accept",".naitheme, .ttf, .otf"),S(f,"type","file"),S(f,"accept",".naitheme, .ttf, .otf")},m(d,m){X(d,t,m),h(t,o),h(t,i),h(t,a),h(t,l),h(t,c),h(t,p),h(t,f),h(t,n),h(t,r),u||(s=[B(c,"change",e[0]),B(f,"change",e[0])],u=!0)},p:w,i:w,o:w,d(d){d&&I(t),u=!1,$(s)}}}function de(e){let t=null;const o=p=>new Promise((f,n)=>{const r=new FileReader;r.readAsDataURL(p),r.onload=()=>f(r.result),r.onerror=n});let i;async function a(p){if(t=p.target.files[0],t.name.endsWith(".naitheme")?(l=await t.text(),c=t.name):i=t,!i)return;let f=JSON.parse(l),n=await o(t);const r=t.name.split(".")[0];f.global+=`@font-face {font-family: '${r}';src: url(${n});}`,f.fonts.default=r,f.fonts.code=r,f.fonts.field=r,f.fonts.headings=r,f.fonts.selectedHeadings=r,f.fonts.selectedDefault=r;var u=new Blob([JSON.stringify(f)],{type:"text/plain;charset=utf-8"});fe.saveAs(u,c)}let l=`{
+  "name": "NovelAI Dark",
+  "fonts": {
+    "default": "\\"Source Sans Pro\\", -apple-system, BlinkMacSystemFont, \\"Segoe UI\\",             \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+    "code": "\\"Source Code Pro\\", Menlo, Monaco, Consolas, \\"Courier New\\", monospace",
+    "field": "\\"Source Sans Pro\\", -apple-system, BlinkMacSystemFont, \\"Segoe UI\\",             \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+    "headings": "\\"Eczar\\"",
+    "selectedHeadings": "Eczar",
+    "selectedDefault": "Source Sans Pro"
+  },
+  "colors": {
+    "bg0": "#0E0F21",
+    "bg1": "#13152C",
+    "bg2": "#191B31",
+    "bg3": "#22253F",
+    "textHeadings": "#F5F3C2",
+    "textMain": "#FFFFFF",
+    "textHeadingsOptions": [
+      "#F5F3C2",
+      "#EC56A7",
+      "#75CF67",
+      "#9773FF"
+    ],
+    "textMainOptions": [
+      "#FFFFFF",
+      "#E7FFE9",
+      "#FFF9C8",
+      "#A5C9FF"
+    ],
+    "textDisabled": "#FFFFFFA0",
+    "textPlaceholder": "#FFFFFF77",
+    "warning": "#FF7878",
+    "textHighlight": "rgba(255, 120, 120, 0.4)",
+    "textPrompt": "#F5F3C2",
+    "textUser": "#9CDCFF",
+    "textEdit": "#F4C7FF",
+    "textAI": "#FFFFFF"
+  },
+  "breakpoints": {
+    "mobile": "1200px",
+    "desktop": "1600px"
+  },
+  "transitions": {
+    "interactive": "0.08s ease-in-out"
+  },
+  "global": ""
+}`,c="NovelAI Dark.naitheme";return[a]}class pe extends le{constructor(t){super(),se(this,t,de,ue,K,{})}}new pe({target:document.getElementById("app")});
