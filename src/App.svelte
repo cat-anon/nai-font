@@ -99,4 +99,7 @@ let font
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
     <p>If you still don't have your download, click here.</p>
+
+    <p>(This works by turning font file into base64 and store it in your css.)</p>
+    <p>If you're on ios/mac, make sure to remove .txt after downloading</p>
 </main>
