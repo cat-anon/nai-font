@@ -94,7 +94,7 @@ let font
 </script>
 
 <main>
-  <h1>NovelAI font uploader for anon.</h1>
+  <h1>NovelAI font uploader for (you).</h1>
     <p>Simply upload your theme, and your font.</p>
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
