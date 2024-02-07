@@ -98,5 +98,5 @@ let font
     <p>Simply upload your theme, and your font.</p>
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
   <input type="file" accept=".naitheme, .ttf, .otf" on:change={handleFileChange} />
-
+    <p>If you still don't have your download, click here.</p>
 </main>
